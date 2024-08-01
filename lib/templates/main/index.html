@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./lib/templates/main/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./lib/templates/main/css/datepicker.material.css">
+    <link rel="stylesheet" href="./lib/templates/main/css/style.css">
+</head>
+<body>
+
+<form class="container py-4" id="service-booking-form">
+    <header class="pb-3 mb-4 border-bottom">
+        <span class="d-flex align-items-center text-dark text-decoration-none">
+            <span class="fs-4">Бронирование услуг</span>
+        </span>
+    </header>
+
+    <div class="row align-items-md-stretch bg-light border rounded-3">
+        <div class="col-md-4">
+            <div class="h-100 p-3">
+                <h5>Выберите дату</h5>
+                <div class="calendar-wrapper d-flex flex-column">
+                    <input type="hidden" id="calendar-input" name="date">
+                    <button class="calendar-confirm-btn btn btn-outline-secondary" type="button">Подтвердить</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5 p-3">
+            <div class="">
+                <h5>Выберите услугу</h5>
+                <div>
+                    <label for="service" class="form-label">
+                        <select class="form-select" id="service" name="service" required>
+                            <option value="1" selected>Бронь 1</option>
+                            <option value="2">Бронь 2</option>
+                            <option value="3">Бронь 3</option>
+                        </select>
+                    </label>
+                    <div class="invalid-feedback">
+                        Please provide a valid service.
+                    </div>
+                </div>
+            </div>
+            <div class="py-2">
+                <h5>Выберите время</h5>
+                <div class="time-selection d-flex">
+                    <div class="p-1">
+                        <input type="checkbox" class="btn-check" id="morning" name="morning" value="Y">
+                        <label class="btn btn-outline-secondary" for="morning">до 14:00</label>
+                    </div>
+                    <div class="p-1">
+                        <input type="checkbox" class="btn-check" id="evening" name="evening" value="Y">
+                        <label class="btn btn-outline-secondary" for="evening">после 14:00</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="h-100 p-3">
+                <h5>Количество игроков</h5>
+                <input type="number" class="form-control" id="players-count" name="players-count" value="1" required>
+                <label for="players-count" class="text-muted text-small">
+                    Максимально возможное количество - <span id="max_count_info"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4 mt-2 p-3 bg-light border rounded-3">
+        <div class="pt-3 text-left">
+            <h5>Контактная информация</h5>
+        </div>
+        <div class="row g-3">
+            <div class="col-6">
+                <div class="col-12">
+                    <label for="fio" class="form-label">ФИО <span class="text-muted">*</span></label>
+                    <input type="text" class="form-control" id="fio" name="fio" required>
+                    <div class="invalid-feedback">
+                        Valid first name is required.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="email" class="form-label">Email <span class="text-muted">*</span></label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid email address for shipping updates.
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <label for="phone" class="form-label">Телефон <span class="text-muted">*</span></label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="you@example.com" required>
+                    <div class="invalid-feedback">
+                        Please enter a valid phone.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="col-12 h-100 d-flex flex-column">
+                    <label for="wishes" class="form-label">Пожелания</label>
+                    <div class="flex-grow-1">
+                        <textarea id="wishes" name="wishes" class="form-control h-100"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-12 pt-4 pb-1 text-center">
+            <button class="btn btn-outline-secondary" type="submit">Отправить</button>
+        </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+        © <span id="currentYear">2024</span>
+    </footer>
+</form>
+
+  <script src="./lib/templates/main/js/datepicker.js"></script>
+  <script src="./lib/templates/main/js/script.js"></script>
+</body>
+</html>

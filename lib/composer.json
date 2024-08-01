@@ -1,0 +1,23 @@
+{
+    "name": "firstbit/1c_booking",
+    "autoload": {
+        "psr-4": {
+            "Firstbit\\OneCBooking\\": "src/"
+        },
+        "files": [
+            "../config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "Alexey Nazarov",
+            "email": "alsnazarov@1cbit.ru"
+        }
+    ],
+    "require": {
+        "php": "7.4.*",
+        "ext-json": "*",
+        "symfony/http-client": "^5.4",
+        "symfony/http-kernel": "^5.4"
+    }
+}

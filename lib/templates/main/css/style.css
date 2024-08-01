@@ -1,0 +1,38 @@
+label.text-muted.text-small{
+    font-size: 12px;
+}
+
+.calendar-wrapper{
+    max-width: max-content;
+}
+
+.calendar-wrapper .calendar-confirm-btn{
+    border-radius: 0 0 3px 3px!important;
+    box-shadow: none !important;
+}
+
+.container .datepicker__header {
+    background: #6c757d;
+}
+
+.container .datepicker__day div:hover,
+.container .datepicker__day div:hover::after,
+.container .datepicker__day.is-selected div{
+    color: #fff;
+    background: #6c757d;
+    transition: .3s;
+}
+
+.time-selection label.btn{
+    box-shadow: none !important;
+}
+
+.time-selection label.btn:hover{
+    background-color: transparent;
+    color: #6c757d;
+}
+
+.time-selection input:checked+label.btn:hover{
+    background-color: #6c757d;
+    color: #fff;
+}
