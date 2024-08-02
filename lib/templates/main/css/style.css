@@ -1,5 +1,18 @@
+
+body{
+    background-size: cover;
+}
+
+.form-block{
+    background-color: rgba(255,255,255,.95);
+}
+
 label.text-muted.text-small{
     font-size: 12px;
+}
+
+.datepicker__wrapper{
+    z-index: 10!important;
 }
 
 .calendar-wrapper{
@@ -35,6 +48,11 @@ label.text-muted.text-small{
 .time-selection input:checked+label.btn:hover{
     background-color: #6c757d;
     color: #fff;
+}
+
+.popup-success .popup-close-btn{
+    display: none;
+    pointer-events: none;
 }
 
 @media (max-width: 767px) {

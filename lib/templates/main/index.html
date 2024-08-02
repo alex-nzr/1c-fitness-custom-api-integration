@@ -8,16 +8,16 @@
     <link rel="stylesheet" href="./lib/templates/main/css/datepicker.material.css">
     <link rel="stylesheet" href="./lib/templates/main/css/style.css">
 </head>
-<body>
+<body style="background-image: url('./lib/templates/main/img/bg.jpg');">
 
 <form class="container py-4" id="service-booking-form">
     <header class="pb-3 mb-4 border-bottom">
         <span class="main-title d-flex align-items-center text-dark text-decoration-none justify-content-sm-center">
-            <span class="fs-4">Бронирование услуг</span>
+            <span class="fs-4 fw-bold">Бронирование услуг</span>
         </span>
     </header>
 
-    <div class="row align-items-md-stretch bg-light border rounded-3">
+    <div class="form-block row align-items-md-stretch border rounded-3">
         <div class="col-md-4">
             <div class="h-100 p-3">
                 <h5 class="secondary-title">Выберите дату</h5>
@@ -68,7 +68,7 @@
         </div>
     </div>
 
-    <div class="row mb-4 mt-2 p-3 bg-light border rounded-3">
+    <div class="form-block row mb-4 mt-2 p-3 border rounded-3">
         <div class="pt-3 text-left">
             <h5 class="secondary-title">Контактная информация</h5>
         </div>
@@ -117,6 +117,24 @@
         © <span id="currentYear">2024</span>
     </footer>
 </form>
+
+<div class="modal fade" id="booking-result-popup" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="booking-result-popup-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="booking-result-popup-label">Modal title</h5>
+                <button type="button" class="popup-close-btn btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p class="popup-text">Text</p>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" class="popup-close-btn btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                <a href="/" class="popup-link-btn btn btn-primary">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
 
   <script src="./lib/templates/main/js/bootstrap.bundle.min.js"></script>
   <script src="./lib/templates/main/js/datepicker.js"></script>
