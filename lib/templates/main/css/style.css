@@ -50,6 +50,15 @@ label.text-muted.text-small{
     color: #fff;
 }
 
+.submit-btn{
+    min-width: 104px;
+}
+
+.submit-btn span.spinner-border{
+    width: 18px;
+    height: 18px;
+}
+
 .popup-success .popup-close-btn{
     display: none;
     pointer-events: none;
