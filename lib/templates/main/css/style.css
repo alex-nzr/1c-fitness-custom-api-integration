@@ -36,3 +36,26 @@ label.text-muted.text-small{
     background-color: #6c757d;
     color: #fff;
 }
+
+@media (max-width: 767px) {
+    .main-title{
+        justify-content: center;
+    }
+
+    .secondary-title{
+        text-align: center;
+    }
+
+    .calendar-wrapper {
+        margin: 0 auto;
+    }
+
+    .service-selector-wrapper,
+    .service-selector-wrapper label{
+        width: 100%;
+    }
+
+    .time-selection{
+        justify-content: center;
+    }
+}

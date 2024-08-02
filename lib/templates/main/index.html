@@ -12,7 +12,7 @@
 
 <form class="container py-4" id="service-booking-form">
     <header class="pb-3 mb-4 border-bottom">
-        <span class="d-flex align-items-center text-dark text-decoration-none">
+        <span class="main-title d-flex align-items-center text-dark text-decoration-none justify-content-sm-center">
             <span class="fs-4">Бронирование услуг</span>
         </span>
     </header>
@@ -20,23 +20,21 @@
     <div class="row align-items-md-stretch bg-light border rounded-3">
         <div class="col-md-4">
             <div class="h-100 p-3">
-                <h5>Выберите дату</h5>
+                <h5 class="secondary-title">Выберите дату</h5>
                 <div class="calendar-wrapper d-flex flex-column">
                     <input type="hidden" id="calendar-input" name="date">
-                    <button class="calendar-confirm-btn btn btn-outline-secondary" type="button">Подтвердить</button>
+                    <button id="calendar-confirm-btn" class="calendar-confirm-btn btn btn-outline-secondary" type="button" disabled>Подтвердить</button>
                 </div>
             </div>
         </div>
 
         <div class="col-md-5 p-3">
             <div class="">
-                <h5>Выберите услугу</h5>
-                <div>
+                <h5 class="secondary-title">Выберите услугу</h5>
+                <div class="service-selector-wrapper">
                     <label for="service" class="form-label">
-                        <select class="form-select" id="service" name="service" required>
-                            <option value="1" selected>Бронь 1</option>
-                            <option value="2">Бронь 2</option>
-                            <option value="3">Бронь 3</option>
+                        <select class="form-select" id="service" name="service" required disabled>
+                            <option selected>Сначала выберите дату</option>
                         </select>
                     </label>
                     <div class="invalid-feedback">
@@ -45,14 +43,14 @@
                 </div>
             </div>
             <div class="py-2">
-                <h5>Выберите время</h5>
+                <h5 class="secondary-title">Выберите время</h5>
                 <div class="time-selection d-flex">
                     <div class="p-1">
-                        <input type="checkbox" class="btn-check" id="morning" name="morning" value="Y">
+                        <input type="checkbox" class="btn-check" id="morning" name="morning" value="Y" disabled>
                         <label class="btn btn-outline-secondary" for="morning">до 14:00</label>
                     </div>
                     <div class="p-1">
-                        <input type="checkbox" class="btn-check" id="evening" name="evening" value="Y">
+                        <input type="checkbox" class="btn-check" id="evening" name="evening" value="Y" disabled>
                         <label class="btn btn-outline-secondary" for="evening">после 14:00</label>
                     </div>
                 </div>
@@ -61,8 +59,8 @@
 
         <div class="col-md-3">
             <div class="h-100 p-3">
-                <h5>Количество игроков</h5>
-                <input type="number" class="form-control" id="players-count" name="players-count" value="1" required>
+                <h5 class="secondary-title">Количество игроков</h5>
+                <input type="number" class="form-control" id="players-count" name="players-count" value="0" required disabled>
                 <label for="players-count" class="text-muted text-small">
                     Максимально возможное количество - <span id="max_count_info"></span>
                 </label>
@@ -72,10 +70,10 @@
 
     <div class="row mb-4 mt-2 p-3 bg-light border rounded-3">
         <div class="pt-3 text-left">
-            <h5>Контактная информация</h5>
+            <h5 class="secondary-title">Контактная информация</h5>
         </div>
         <div class="row g-3">
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
                 <div class="col-12">
                     <label for="fio" class="form-label">ФИО <span class="text-muted">*</span></label>
                     <input type="text" class="form-control" id="fio" name="fio" required>
@@ -100,7 +98,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12">
                 <div class="col-12 h-100 d-flex flex-column">
                     <label for="wishes" class="form-label">Пожелания</label>
                     <div class="flex-grow-1">
@@ -111,7 +109,7 @@
         </div>
 
         <div class="col-12 pt-4 pb-1 text-center">
-            <button class="btn btn-outline-secondary" type="submit">Отправить</button>
+            <button id="service-booking-form-submit" class="btn btn-outline-secondary" type="submit">Отправить</button>
         </div>
     </div>
 
@@ -120,7 +118,16 @@
     </footer>
 </form>
 
+  <script src="./lib/templates/main/js/bootstrap.bundle.min.js"></script>
   <script src="./lib/templates/main/js/datepicker.js"></script>
   <script src="./lib/templates/main/js/script.js"></script>
+  <script>
+      if (!window.FirstBit){
+          window.FirstBit = {};
+      }
+
+      window.FirstBit.oneCFitnessBooking = new OneCFitnessServiceBooking();
+      window.FirstBit.oneCFitnessBooking?.init();
+  </script>
 </body>
 </html>

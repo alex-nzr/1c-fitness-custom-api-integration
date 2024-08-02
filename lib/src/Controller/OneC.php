@@ -2,6 +2,7 @@
 namespace Firstbit\OneCBooking\Controller;
 
 use DateTime;
+use Exception;
 use Firstbit\OneCBooking\Service\DataFetcher;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,10 +21,10 @@ class OneC extends Base
     public function process(Request $request): Response
     {
         $result = [];
-        $action = $request->get('action');
+        $params = $this->preparePostData($request->getContent());
+        $action = (string)$params['action'];
         if (!empty($action) && method_exists(static::class, $action))
         {
-            $params = [];//todo extract from request
             $result = $this->$action($params);
         }
         return new JsonResponse($result);
@@ -34,7 +35,38 @@ class OneC extends Base
      */
     public function loadSchedule(array $params): array
     {
+        if (!empty($params['date']))
+        {
+            $date = DateTime::createFromFormat('d.m.Y', $params['date']);
+            if ($date instanceof DateTime)
+            {
+                return DataFetcher::getInstance()->loadSchedule($date);
+            }
+            else
+            {
+                throw new Exception('Can not create date object from param - ' . $params['date']);
+            }
+        }
+        else
+        {
+            throw new Exception('Date param is empty');
+        }
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function sendBooking(array $params): array
+    {
         $date = new DateTime($params['dateFromParams']);
-        return DataFetcher::getInstance()->loadSchedule($date);
+        return DataFetcher::getInstance()->sendBooking($date);
+    }
+
+    protected function preparePostData($params): array
+    {
+        $postData = json_decode($params,true);
+        $postParams = is_array($postData) ? $postData : [];
+        //return Utils::cleanRequestData($postParams);
+        return $postParams;
     }
 }
